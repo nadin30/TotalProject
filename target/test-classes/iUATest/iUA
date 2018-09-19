@@ -1,0 +1,47 @@
+Feature:
+
+  Scenario: Try autorize with valid data
+    Given Enter login "miroshka_n@i.ua"
+    And Enter passworg "nadin123"
+    When I click login button
+    Then i check that user name is "miroshka_n@i.ua"
+
+  Scenario: Try outorize with notvalid data
+    Given Enter not vali login "123@12.22"
+    And Enter not valid password "123"
+    When I click login button
+    Then I check that I don't autirize
+
+  Scenario: Sent letter
+    Given Enter login "miroshka_n@i.ua"
+    And Enter passworg "nadin123"
+    And I click login button
+    And I click create mess button
+    And I enter addressee
+    And I enter letter subject
+    And I enter letter text
+    When I click sent button
+    Then I see OK message
+
+  Scenario: Delete inbox letter
+    Given Enter login "miroshka_n@i.ua"
+    And Enter passworg "nadin123"
+    And I click login button
+    And I click inbox letters button
+    And I click on checkbox
+    When I click delete button
+    Then I deleted letter
+
+
+
+
+
+
+
+  Scenario: LogOut
+    Given Enter login "miroshka_n@i.ua"
+    And Enter passworg "nadin123"
+    And I click login button
+    When I click quit button
+    Then I check that I quit
+
