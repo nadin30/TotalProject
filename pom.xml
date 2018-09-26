@@ -100,11 +100,11 @@
                             <goal>generateRunners</goal>
                         </goals>
                         <configuration>
-                            <glue>com.automationrhapsody.cucumber.parallel.tests.wikipedia</glue>
-                            <featuresDirectory>src/test/resources/com</featuresDirectory>
-                            <cucumberOutputDir>target/cucumber-parallel</cucumberOutputDir>
+                            <glue>wiki</glue>
+                            <featuresDirectory>src/test/resourses/iUATest</featuresDirectory>
+                            <cucumberOutputDir>/resourses/iUATest</cucumberOutputDir>
                             <format>json,html</format>
-                            <tags>"~@ignored"</tags>
+                            <tags>"~@all"</tags>
                         </configuration>
                     </execution>
                 </executions>

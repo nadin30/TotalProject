@@ -1,3 +1,4 @@
+@all
 Feature:
 
   Scenario: Try autorize with valid data
@@ -38,4 +39,10 @@ Feature:
     And I click login button
     When I click quit button
     Then I check that I quit
+
+  Scenario: API 1
+    Then I check status code
+
+  Scenario: API 2
+    Then I check autorization
 
