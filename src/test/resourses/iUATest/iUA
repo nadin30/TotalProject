@@ -41,8 +41,11 @@ Feature:
     Then I check that I quit
 
   Scenario: API 1
-    Then I check status code
+    Then I sent request to the site www.i.ua
 
   Scenario: API 2
-    Then I check autorization
+    Then I check data from of the site
+
+  Scenario: API 3
+    Then I check that I login
 

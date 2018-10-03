@@ -3,6 +3,8 @@ package wiki;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,6 +28,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 
+import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 
@@ -190,10 +193,43 @@ public class MyStepdefsIUA extends BaseSteps {
         URL url = new URL("https://passport.i.ua/login/");
         HttpURLConnection connection = (HttpURLConnection)url.openConnection();
         connection.setRequestMethod("POST");
-        Map<String, String> parameters = new HashMap<String, String>();
-        parameters.put("login", "miroshka_n@i.ua");
-        parameters.put("pass", "nadin123");
+//        Map<String, String> parameters = new HashMap<String, String>();
+//        parameters.put("login", "miroshka_n@i.ua");
+//        parameters.put("pass", "nadin123");
         int code = connection.getResponseCode();
         Assert.assertEquals(302, code);
+    }
+
+    @And("^lkmhjltyghiykt$")
+    public void lkmhjltyghiykt() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^I sent request to the site www.i.ua$")
+    public void iSentRequestToTheSiteWwwIUa() throws Throwable {
+        io.restassured.response.Response resp = RestAssured.get("https://www.i.ua/");
+        int code = resp.getStatusCode();
+        Assert.assertEquals(code,200);
+        System.out.println("Time of responce  = "+resp.getTime());
+    }
+
+    @Then("^I check data from of the site$")
+    public void iCheckDataFromOfTheSite() throws Throwable {
+        io.restassured.response.Response resp = RestAssured.get("https://www.i.ua/");
+        String data = resp.asString();
+        System.out.println("Data is "+data);
+        System.out.println("Time of responce  = "+resp.getTime());
+    }
+
+    @Then("^I check that I login$")
+    public void iCheckThatILogin() throws Throwable {
+        io.restassured.response.Response resp = given().body("   {\"login\": \"miroshka_n\"," +
+                ""+" \"pass\": \"nadin123\"")
+
+                .when().contentType(ContentType.JSON)
+                .post("https://www.i.ua/");
+
+        System.out.println(resp.asString());
     }
 }

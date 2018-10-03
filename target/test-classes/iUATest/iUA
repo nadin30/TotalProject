@@ -45,4 +45,5 @@ Feature:
 
   Scenario: API 2
     Then I check autorization
+    And lkmhjltyghiykt
 
