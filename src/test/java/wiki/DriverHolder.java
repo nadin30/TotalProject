@@ -11,9 +11,9 @@ public class DriverHolder {
 
     public static synchronized WebDriver getInstance() {
         try {
-            if (instance == null) {
+//            if (instance == null) {
                 instance = WebdriverConfig.webDriver("Chrome");
-            }
+//            }
         }catch(Exception e){
             e.printStackTrace();
         }

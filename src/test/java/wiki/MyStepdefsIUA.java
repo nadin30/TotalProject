@@ -61,7 +61,7 @@ public class MyStepdefsIUA extends BaseSteps {
     @And("^Enter passworg \"([^\"]*)\"$")
     public void enterPassworg(String pass) throws Throwable {
         WebElement passField = driver.findElement(By.name("pass"));
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         passField.sendKeys(pass);
 
     }
@@ -81,8 +81,11 @@ public class MyStepdefsIUA extends BaseSteps {
 
     @When("^I click quit button$")
     public void iClickQuitButton() throws Throwable {
-        WebElement quitButton = driver.findElement(By.cssSelector("#header_overall > div.ho_nav > a"));
+        WebElement quitButton = driver.findElement(By.cssSelector("li:nth-child(3) > span"));
         quitButton.click();
+        Thread.sleep(2000);
+        WebElement LogOut = driver.findElement(By.cssSelector("#accountSettingsPopup > ul > li:nth-child(7) > a"));
+        LogOut.click();
 
     }
 

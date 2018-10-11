@@ -13,7 +13,7 @@ public class BaseSteps {
     protected static WebDriver driver;
 
     protected static void startWebDriver() {
-        driver=DriverHolder.getInstance();
+        driver = DriverHolder.getInstance();
         driver.navigate().to("http://www.i.ua/");
     }
 
